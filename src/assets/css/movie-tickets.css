@@ -1,0 +1,91 @@
+.rdt {
+  position: relative;
+}
+.rdt .rdtPicker {
+  -webkit-transition: all 150ms linear;
+  -moz-transition: all 150ms linear;
+  -o-transition: all 150ms linear;
+  -ms-transition: all 150ms linear;
+  transition: all 150ms linear;
+  margin-top: -20px;
+  visibility: hidden;
+  display: block;
+  opacity: 0;
+}
+.rdt.rdtOpen .rdtPicker {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0;
+}
+
+.rdtPicker {
+  display: none;
+  position: absolute;
+  width: 260px;
+  padding: 4px;
+  margin-top: 1px;
+  z-index: 99999 !important;
+  background: #fff;
+  border-radius: 0.125rem;
+  box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  min-width: 160px;
+}
+.rdtPicker:before {
+  display: inline-block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  content: "";
+  top: -5px;
+  left: 10px;
+  right: auto;
+  color: #ffffff;
+  border-bottom: 0.4em solid;
+  border-right: 0.4em solid transparent;
+  border-left: 0.4em solid transparent;
+}
+.rdtPicker:after {
+  border-bottom: 0.4em solid #ffffff;
+  border-right: 0.4em solid transparent;
+  border-left: 0.4em solid transparent;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: -5px;
+  left: 10px;
+}
+
+.rdtPicker {
+  display: block;
+  top: 40px;
+}
+
+.rdtStatic .rdtPicker {
+  box-shadow: none;
+  position: static;
+}
+
+.rdtPicker .rdtTimeToggle {
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.rdtPicker table {
+  width: 100%;
+  margin: 0;
+  border-color: #ffffff !important;
+}
+
+.rdtPicker td,
+.rdtPicker th {
+  text-align: center;
+  padding: 1px;
+}
+
+.rdtPicker td {
+  cursor: pointer;
+}
