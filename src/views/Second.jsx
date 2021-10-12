@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Card, Form, Container, Row, Col } from "reactstrap";
-// import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import { AppContext } from "../utilities/Context";
 import { ContactForm } from "../components/contactForm/ContactForm";
 import { BtnRound } from "../components/common/Buttons";
 import { ErrorMessage } from "../components/error/ErorrMessage";
+import { secondPageValidation } from "../utilities/validation";
 
 function Second(props) {
   const [state, dispatch] = useContext(AppContext);
@@ -22,46 +22,49 @@ function Second(props) {
     dispatch({ type: "contacts", payload: tempArr });
   };
 
+  const handleSubmit = () => {
+    let errMsg = "";
+    errMsg = secondPageValidation(contactArr);
+
+    dispatch({ type: "error", payload: errMsg });
+    if (errMsg) return;
+
+    props.pushHistory("/third");
+  };
+
   return (
     <>
       {!contactArr ? (
         <div>Loading</div>
       ) : (
-        <>
-          {/* <ExamplesNavbar /> */}
-
-          <div className="filter" />
-
-          <Container>
-            <Row>
-              <Col className="ml-auto mr-auto" lg="4">
-                <Card className="card-register ml-auto mr-auto">
-                  <Form className="register-form">
-                    {contactArr.map((contact, index) => {
-                      return (
+        <Container>
+          <Row>
+            <Col className="ml-auto mr-auto" lg="4">
+              <Card className="card-register ml-auto mr-auto">
+                <Form className="register-form">
+                  {contactArr.map((contact, index) => {
+                    return (
+                      <div key={index}>
                         <ContactForm
-                          key={index}
                           index={index}
                           handleInput={handleInput}
                           contact={contact}
                         />
-                      );
-                    })}
+                        <hr />
+                      </div>
+                    );
+                  })}
+                  <ErrorMessage message={state.error} />
 
-                    <ErrorMessage message={state.error} />
-
-                    <BtnRound onClick={() => props.pushHistory("/third")}>
-                      Next
-                    </BtnRound>
-                    <BtnRound onClick={() => props.pushHistory("/first")}>
-                      Prev
-                    </BtnRound>
-                  </Form>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
-        </>
+                  <BtnRound onClick={handleSubmit}>Next</BtnRound>
+                  <BtnRound onClick={() => props.pushHistory("/first")}>
+                    Prev
+                  </BtnRound>
+                </Form>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       )}
     </>
   );

@@ -1,12 +1,12 @@
 import { GetHistory } from "../../utilities/history";
 
 export const WithHistory =
-  (Comment) =>
+  (Component) =>
   ({ ...props }) => {
     const history = GetHistory();
 
     const pushHistory = (url) => {
       history.push(url);
     };
-    return <Comment pushHistory={pushHistory} {...props} />;
+    return <Component pushHistory={pushHistory} {...props} />;
   };

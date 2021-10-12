@@ -8,6 +8,7 @@ export const Select = (props) => {
       value={props.value}
       onChange={props.onChange}
     >
+      <option value="">Select</option>
       {props.options.map((option, index) => {
         return (
           <option key={index} value={option}>
@@ -16,6 +17,17 @@ export const Select = (props) => {
         );
       })}
     </Input>
+  );
+};
+
+export const TextInput = (props) => {
+  return (
+    <Input
+      type="text"
+      name={props.name}
+      value={props.value}
+      onChange={props.onChange}
+    />
   );
 };
 

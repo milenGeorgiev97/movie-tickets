@@ -25,7 +25,7 @@
   padding: 4px;
   margin-top: 1px;
   z-index: 99999 !important;
-  background: #fff;
+  background: #2e597e;
   border-radius: 0.125rem;
   box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.2);
   -webkit-background-clip: padding-box;
@@ -88,4 +88,28 @@
 
 .rdtPicker td {
   cursor: pointer;
+}
+
+.ml-auto,
+.mx-auto {
+  margin-left: auto !important;
+}
+
+.mr-auto,
+.mx-auto {
+  margin-right: auto !important;
+}
+
+.card-register {
+  background-color: #314e66;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 350px;
+  margin: 20px 0 70px;
+  min-height: 400px;
+  padding: 30px;
+}
+
+.card-register .btn {
+  margin: 30px 10px;
 }

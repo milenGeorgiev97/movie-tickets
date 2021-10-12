@@ -1,3 +1,3 @@
 export const ErrorMessage = ({ message }) => {
-  return <> {message && <strong>{message}</strong>}</>;
+  return <div> {message && <i>{message}</i>}</div>;
 };
